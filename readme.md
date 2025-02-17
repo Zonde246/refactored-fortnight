@@ -1,6 +1,6 @@
 # Refactored-Fortnight
 
-Is just a random 
+Is just a random name
 
 # How to run the code
 
@@ -13,7 +13,7 @@ Django, Djangorestframework,pymupdf
 Use
 
 ```
-pip install django djangorestframework pymupdf 
+pip install django djangorestframework pymupdf
 ```
 
 ```
@@ -47,9 +47,8 @@ Change to the root directory and run `python manage.py runserver`
 
 This will start the Django server. Now, Right now there is no UI created. and hence we need to use the CLI to test the code.
 
-
-Use the following and replace "file" with the name of your file.
+Use the following and replace "YOURFILE" with the name of your file.
 
 ```
-curl -X POST -F "file=@thing2.pdf" http://127.0.0.1:8000/api/upload/
+curl -X POST -F "file=@YOURFILE.pdf" http://127.0.0.1:8000/api/upload/
 ```
