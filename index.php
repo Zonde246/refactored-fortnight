@@ -8,16 +8,7 @@
 </head>
 
 <body>
-    <?php
-    if (isset($_GET['error'])) {
-        echo "Invalid username or password";
-    }
-    ?>
-    <form action="index.php" method="post">
-        <input type="text" name="username" />
-        <input type="password" name="password" />
-        <button> Login </button>
-    </form>
+    <?php include './components/navbar.php'; ?>
 </body>
 
 </html>

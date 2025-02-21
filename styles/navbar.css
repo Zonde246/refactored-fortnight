@@ -1,0 +1,42 @@
+.navbar {
+    width: 90%;
+    height: 60px;
+
+    background-color: #732ddb;
+    color: white;
+
+    border-radius: 60px;
+    
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.left {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+}
+
+.right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+}
+
+.left > div,
+.right > div {
+    padding: 0 20px;
+    height: 60px;
+    text-align: center;
+    line-height: 55px;
+}
+
