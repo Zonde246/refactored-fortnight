@@ -1,3 +1,5 @@
+
+
 .navbar {
     width: 90%;
     height: 60px;
@@ -40,3 +42,83 @@
     line-height: 55px;
 }
 
+.linkButtons {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 1em;
+    min-width: 125px;
+    text-align: center;
+    color: white;
+    background-color: #732ddb;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.mobile {
+    display: none;
+    visibility: hidden;
+}
+
+#menu {
+    display: none;
+    visibility: hidden;
+}
+
+/* Check for mobile screens */
+@media screen and (max-width: 1200px) {
+    .navbar {
+        width: 90%;
+        height: 60px;
+        border-radius: 40;
+    }
+
+    .desktop {
+        display: none;
+        visibility: hidden;
+    }
+
+    #menu {
+        
+        display: flex;
+        visibility: visible;
+        flex-direction: column;
+        justify-content: right;
+        align-items: center;
+    }
+
+    .closed {
+        transform: translate(100%, 25%);
+        transition: all 0.5s;
+
+    }
+
+
+    .menu--open {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        color: white;
+
+        visibility: visible;
+        
+
+        transform: translate(25% , 25%);
+        transition: all 0.5s;
+
+
+    }
+
+    .mobile {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        width: 100%;
+        visibility: visible;
+    }
+    
+}

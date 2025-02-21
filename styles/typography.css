@@ -51,16 +51,3 @@ blockquote {
     border-left: 4px solid #814c27;
 }
 
-.linkButtons {
-    font-family: 'Merriweather', serif;
-    font-weight: 400;
-    font-size: 1em;
-    text-align: center;
-    color: white;
-    background-color: #732ddb;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-}
