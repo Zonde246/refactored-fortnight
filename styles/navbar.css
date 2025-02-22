@@ -67,6 +67,11 @@
     visibility: hidden;
 }
 
+.invis {
+    display: none;
+    visibility: hidden;
+}
+
 /* Check for mobile screens */
 @media screen and (max-width: 1200px) {
     .navbar {

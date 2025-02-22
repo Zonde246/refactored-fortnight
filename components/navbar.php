@@ -14,8 +14,8 @@
         <div class="desktop"><button class="linkButtons">Contact us</button></div>
     </div>
     <div class="right">
-        <div id="login" class="desktop"><button class="linkButtons">Login</button></div>
-        <div id="user" class="desktop"><button class="linkButtons">Hello Zon!</button></div>
+        <div id="login" class="desktop"><button class="linkButtons" onclick="document.location.href='./login.php'">Login</button></div>
+        <div id="user" class="desktop"><button class="linkButtons" onclick="() => document.location.href('./login.php')">Hello Zon!</button></div>
         <div class="mobile">
             <button class="linkButtons" onclick="menuHandler()">Menu</button>
         </div>
@@ -27,7 +27,7 @@
     <button class="linkButtons">Home</button>
     <button class="linkButtons">About us</button>
     <button class="linkButtons">Contact us</button>
-    <button class="linkButtons">Login</button>
-    <button class="linkButtons">Hello Zon!</button>
+    <button id="login" class="linkButtons" onclick="() => document.location.href('./login.php')">Login</button>
+    <button id="user" class="linkButtons">Hello Zon!</button>
     <button class="linkButtons" onclick="menuHandler()">Close</button>
 </div>

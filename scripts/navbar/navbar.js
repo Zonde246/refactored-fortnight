@@ -13,3 +13,12 @@ function menuHandler () {
         menu.classList.add('closed');
     }
 }
+
+
+if (session) {
+    document.querySelector('#login').classList.add('invis');
+    document.querySelector('#user').classList.remove('invis');
+} else {
+    document.querySelector('#login').classList.remove('invis');
+    document.querySelector('#user').classList.add('invis');
+}
