@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/navbar.css">
     <link rel="stylesheet" href="/styles/typography.css">
-    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="stylesheet" href="/styles/signup.css">
     <title>Document</title>
 </head>
 
@@ -15,18 +15,39 @@
     <div class="main-container">
         <div class="sub-container">
             <div class="container">
-                <img src="/public/temple.jpeg" width="100%" height="100%" class="img" />
-            </div>
-            <div class="container">
                 <h1>Login</h1>
                 <form action="./login.php" method="POST" class="login-form">
                     <table>
+                        <tr>
+                            <td>
+                                <label for="email">Email</label>
+                            </td>
+                            <td>
+                                <input type="email" name="email" id="email" required>
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <label for="username">Username</label>
                             </td>
                             <td>
                                 <input type="text" name="username" id="username" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="address">Address</label>
+                            </td>
+                            <td>
+                                <input type="text" name="address" id="address" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="dob">Date of Birth</label>
+                            </td>
+                            <td>
+                                <input type="date" name="dob" id="dob" required>
                             </td>
                         </tr>
                         <tr>
@@ -38,18 +59,20 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2" class="center"> <a href="signup.php">Already a user? </a> </td>
+                            <td colspan="2" class="center"> <a href="login.php">Already a user? </a> </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <button type="submit">Login</button>
+                                <button type="submit">Signup</button>
                             </td>
                         </tr>
-                    </table>
-                </form>
+                        
+                    </form>
+                </div>
+            </div>
+            <div class="container">
             </div>
         </div>
-    </div>
 </body>
 
 </html>
