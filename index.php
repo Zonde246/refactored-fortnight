@@ -32,6 +32,7 @@
                 <div class="feature-icon">👥</div>
                 <h3>Supportive Community</h3>
                 <p>Join a welcoming community of like-minded individuals on the path of spiritual growth and self-discovery.</p>
+                <p> hello megha</p>
             </div>
         </div>
     </section>
