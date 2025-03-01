@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/navbar.css">
-    <link rel="stylesheet" href="/styles/typography.css">
-    <link rel="stylesheet" href="/styles/signup.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/login.css">
     <title>Document</title>
 </head>
 
@@ -15,7 +15,7 @@
     <div class="main-container">
         <div class="sub-container">
             <div class="container">
-                <h1>Login</h1>
+                <h1>Sign up!</h1>
                 <form action="./login.php" method="POST" class="login-form">
                     <table>
                         <tr>
@@ -59,6 +59,14 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                <label for="password">Confirm Password</label>
+                            </td>
+                            <td>
+                                <input type="password" name="password" id="password" required>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2" class="center"> <a href="login.php">Already a user? </a> </td>
                         </tr>
                         <tr>
@@ -66,11 +74,12 @@
                                 <button type="submit">Signup</button>
                             </td>
                         </tr>
-                        
+                    </table>
                     </form>
                 </div>
-            </div>
             <div class="container">
+                <img src="public/temple.jpeg" width="100%" height="100%" class="img" alt="judgement"/>
+            </div>
             </div>
         </div>
 </body>
