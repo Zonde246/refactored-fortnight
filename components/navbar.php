@@ -9,11 +9,10 @@
         <a href="#" class="logo">Shanti<span>Ashram</span></a>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Programs</a></li>
+            <li><a href="/about.php">About</a></li>
+            <li><a href="/employee-dashboard.html">Programs</a></li>
             <li><a href="#">Schedule</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#" id="log">Login</a></li>
         </ul>
     </nav>
 </header>
