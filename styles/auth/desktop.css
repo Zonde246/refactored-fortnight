@@ -1,0 +1,128 @@
+/* Desktop styles (min-width: 768px) */
+@media (min-width: 768px) {
+    .portal-container {
+        width: 850px;
+        height: 560px;
+        position: relative;
+        perspective: 1000px;
+    }
+
+    .portal-card {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 1.2s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .portal-card.flip {
+        transform: rotateY(180deg);
+    }
+
+    .card-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+    }
+
+    .front {
+        background: linear-gradient(135deg, var(--dark-purple) 50%, rgba(115, 45, 219, 0.15) 100%);
+    }
+
+    .back {
+        background: linear-gradient(135deg, var(--dark-purple) 50%, rgba(225, 82, 112, 0.15) 100%);
+        transform: rotateY(180deg);
+    }
+
+    .illustration {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .form-section {
+        flex: 1;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: var(--light-lavender);
+    }
+
+    .front .form-section {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .back .form-section {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        order: -1;
+    }
+
+    .mandala {
+        width: 300px;
+        height: 300px;
+    }
+
+    .meditation-figure {
+        width: 200px;
+        height: 200px;
+    }
+
+    .back .meditation-figure {
+        filter: drop-shadow(0 0 10px rgba(225, 82, 112, 0.5));
+    }
+
+    h2 {
+        color: var(--vibrant-purple);
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+        font-weight: 600;
+    }
+
+    .back h2 {
+        color: var(--coral-red);
+    }
+
+    .back input {
+        background: rgba(225, 82, 112, 0.1);
+    }
+
+    .back input:focus,
+    .back input:valid {
+        border-bottom: 2px solid var(--coral-red);
+    }
+
+    .back input:focus + label,
+    .back input:valid + label {
+        color: var(--coral-red);
+    }
+
+    .toggle-form {
+        margin-top: 30px;
+    }
+
+    button {
+        margin-top: 20px;
+    }
+
+    .back .toggle-btn {
+        color: var(--vibrant-purple);
+    }
+
+    .toggle-btn:hover {
+        color: var(--vibrant-purple);
+        transform: none;
+        box-shadow: none;
+    }
+}

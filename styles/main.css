@@ -8,6 +8,11 @@
     --vibrant-purple: #732ddb;
     --soft-pink: #eb8dc4;
     --coral-red: #e15270;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
 }
 .logo {
     font-size: 2rem;

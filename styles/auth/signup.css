@@ -1,0 +1,139 @@
+.auth-section {
+    background: var(--dark-purple);
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image:
+            radial-gradient(circle at 10% 20%, rgba(115, 45, 219, 0.05) 0%, transparent 20%),
+            radial-gradient(circle at 90% 80%, rgba(235, 141, 196, 0.05) 0%, transparent 20%),
+            radial-gradient(circle at 50% 50%, rgba(225, 82, 112, 0.03) 0%, transparent 30%);
+    padding: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(115, 45, 219, 0.1);
+    outline: none;
+    font-size: 16px;
+    color: var(--dark-purple);
+}
+
+input:focus,
+input:valid {
+    border-bottom: 2px solid var(--vibrant-purple);
+}
+
+label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #666;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+input:focus + label,
+input:valid + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    padding: 0 5px;
+    background: var(--light-lavender);
+    color: var(--vibrant-purple);
+}
+
+button {
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    background: var(--vibrant-purple);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(115, 45, 219, 0.3);
+}
+
+.toggle-form {
+    margin-top: 25px;
+    text-align: center;
+    color: #666;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: var(--vibrant-purple);
+    cursor: pointer;
+    font-weight: 500;
+    margin-left: 5px;
+    transition: all 0.3s;
+    padding: 0;
+    width: auto;
+    display: inline;
+}
+
+.toggle-btn:hover {
+    color: var(--dark-purple);
+    transform: none;
+    box-shadow: none;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Common elements */
+.mandala {
+    position: absolute;
+    opacity: 0.3;
+    animation: rotate 60s linear infinite;
+}
+
+.meditation-figure {
+    z-index: 2;
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(115, 45, 219, 0.5));
+}
+
+.form-section > * {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Animation delays */
+h2 { animation-delay: 0.2s; }
+.input-group:nth-child(2) { animation-delay: 0.3s; }
+.input-group:nth-child(3) { animation-delay: 0.4s; }
+.input-group:nth-child(4) { animation-delay: 0.5s; }
+button { animation-delay: 0.6s; }
+.toggle-form { animation-delay: 0.7s; }

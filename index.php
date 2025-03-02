@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
     <title>Document</title>
 </head>
 
 <body>
-    <?php include './components/navbar.php'; ?>
+    <?php include './components/navbar.php';
+        echo NavigationBar();
+    ?>
     <section class="hero">
         <h1>Find Inner Peace & Spiritual Growth</h1>
         <p>Join our community and embark on a journey of self-discovery, meditation, and holistic wellness.</p>
@@ -123,7 +126,9 @@
         </div>
     </section>
 
-<?php include './components/footer.php'?>
+<?php include './components/footer.php';
+    echo Footer();
+?>
 
 </body>
 

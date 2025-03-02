@@ -1,0 +1,123 @@
+/* Mobile styles (max-width: 950px) */
+@media (max-width: 950px) {
+    .portal-container {
+        width: 100%;
+        max-width: 850px;
+        position: relative;
+    }
+
+    .portal-card {
+        width: 100%;
+        position: relative;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+    }
+
+    .card-face {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: opacity 0.6s ease;
+    }
+
+    .back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .portal-card.flip .front {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .portal-card.flip .back {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .illustration {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .front .illustration {
+        background: linear-gradient(135deg, var(--dark-purple) 50%, rgba(115, 45, 219, 0.15) 100%);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .back .illustration {
+        background: linear-gradient(135deg, var(--dark-purple) 50%, rgba(225, 82, 112, 0.15) 100%);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .form-section {
+        width: 100%;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: var(--light-lavender);
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .mandala {
+        width: 220px;
+        height: 220px;
+    }
+
+    .meditation-figure {
+        width: 120px;
+        height: 120px;
+    }
+
+    .back .meditation-figure {
+        filter: drop-shadow(0 0 10px rgba(225, 82, 112, 0.5));
+    }
+
+    h2 {
+        color: var(--vibrant-purple);
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        font-weight: 600;
+    }
+
+    .back h2 {
+        color: var(--coral-red);
+    }
+
+    .back input {
+        background: rgba(225, 82, 112, 0.1);
+    }
+
+    .back input:focus,
+    .back input:valid {
+        border-bottom: 2px solid var(--coral-red);
+    }
+
+    .back input:focus + label,
+    .back input:valid + label {
+        color: var(--coral-red);
+    }
+
+    .back .toggle-btn {
+        color: var(--coral-red);
+    }
+
+    .back .toggle-btn:hover {
+        color: var(--soft-pink);
+        transform: none;
+        box-shadow: none;
+    }
+}

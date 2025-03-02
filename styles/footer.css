@@ -1,6 +1,7 @@
 footer {
     background-color: var(--dark-purple);
     color: var(--light-lavender);
+    border-top: 1px solid rgba(213, 208, 208, 0.27);
     padding: 3rem 1rem;
 }
 
@@ -57,8 +58,9 @@ footer {
     background-color: var(--coral-red);
 }
 
-.contact-form input,
-.contact-form textarea {
+.FooterContact-form input,
+.FooterContact-form textarea {
+    background: var(--light-lavender);
     width: 100%;
     padding: 0.8rem;
     margin-bottom: 1rem;
