@@ -1,0 +1,167 @@
+@media screen and (max-width: 768px) {
+    /* Page Header */
+    .page-header {
+        padding: 3rem 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .breadcrumb {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* About Intro */
+    .about-intro {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+        padding: 2rem 1rem;
+    }
+
+    .highlight-box p {
+        font-size: 1.5rem;
+    }
+
+    /* Timeline */
+    .timeline {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .timeline::after {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: left;
+    }
+
+    .timeline-item::after {
+        left: 10px;
+        right: auto;
+    }
+
+    /* Teaching Grid */
+    .teaching-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Team Section */
+    .team-img {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        padding: 3rem 1rem;
+    }
+
+    .cta-title {
+        font-size: 2.5rem;
+    }
+
+    .cta-text {
+        font-size: 1.2rem;
+    }
+
+    .cta-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-col {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .highlight-box p {
+        font-size: 1.3rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    .timeline-date {
+        font-size: 1.1rem;
+    }
+
+    .timeline-title {
+        font-size: 1.2rem;
+    }
+
+    .cta-title {
+        font-size: 2rem;
+    }
+
+    .cta-text {
+        font-size: 1rem;
+    }
+}
+
+/* Touch Optimization */
+@media (hover: none) and (pointer: coarse) {
+    /* Adjust for touch devices */
+    .teaching-card,
+    .team-member {
+        transition: none;
+    }
+
+    .teaching-card:hover,
+    .team-member:hover {
+        transform: none;
+    }
+}
+
+/* Accessibility Enhancements */
+@media screen and (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

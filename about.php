@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/about/about.css">
+    <link rel="stylesheet" href="/styles/about/aboutMobile.css">
     <title>About Our Ashram - Shanti Ashram</title>
     <meta name="description" content="Learn about Shanti Ashram's history, mission, and spiritual philosophy. Founded in 1985 by Guru Sri Prabhakar Mishra in the Himalayas.">
 
