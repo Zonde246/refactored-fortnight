@@ -9,14 +9,19 @@
     <link rel="stylesheet" href="/styles/auth/signup.css">
     <link rel="stylesheet" href="/styles/auth/mobile.css">
     <link rel="stylesheet" href="/styles/auth/desktop.css">
+    
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <!-- Import components as module -->
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/components/footer.js"></script>
+
     <title>Document</title>
     <script src="/scripts/Login.js" defer ></script>
 </head>
 
 <body>
-<?php include './components/navbar.php';
-echo NavigationBar();
-?>
+<navigation-bar></navigation-bar>
     <section class="auth-section">
         <div class="portal-container">
             <div class="portal-card" id="portal-card">
@@ -107,9 +112,7 @@ echo NavigationBar();
         </div>
     </section>
 
-        <?php include "./components/footer.php";
-            echo Footer();
-        ?>
+        <footer-component></footer-component>
 </body>
 
 </html>

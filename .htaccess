@@ -1,1 +1,41 @@
-ErrorDocument 404 http://localhost:4000/err.php
+ErrorDocument 404 http://localhost:8080/err.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Check if the request is for a file in the "prot" directory
+    RewriteCond %{REQUEST_URI} ^/prot/
+    
+    # Run protection.php first, then continue to the requested file
+    RewriteRule ^prot/(.*)$ protection.php?file=$1 [QSA,L]
+
+    RewriteRule ^\.env$ - [F,L]
+    RewriteRule ^env_loader\.php$ - [F,L]
+</IfModule>
+
+# Protect the .env file from being accessed
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Protect the env_loader.php file from being directly accessed
+<Files env_loader.php>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Prevent directory listing
+Options -Indexes
+
+# Only allow the authHandler.php to be accessed directly
+<FilesMatch "^(authHandler\.php)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# Protect configuration files
+<FilesMatch "^(config\.php|env_loader\.php)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

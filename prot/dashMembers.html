@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashram Community - Members</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/styles/Dashboard/Members.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <button class="sidebar-toggle" aria-label="Toggle Sidebar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="dashboard">
+        <div class="sidebar">
+            <h1>Ashram Management</h1>
+            <ul>
+                <li><a href="./dash.php"><i class="fas fa-om"></i> Dashboard</a></li>
+                <li><a href="#" class="active"><i class="fas fa-users"></i> Members</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <div class="header-info">
+                    <h1>Ashram Community Members</h1>
+                    <p>Explore and manage our spiritual community</p>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search members..." id="memberSearch">
+                    </div>
+                    <div class="user-profile">
+                        <img src="/api/placeholder/40/40" alt="Admin">
+                        <span>Swami Ananda</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-cards">
+                <div class="stat-card" id="totalMembersCard">
+                    <h3>Total Members</h3>
+                    <div class="value">142</div>
+                </div>
+                
+                <div class="stat-card" id="activeMembersCard">
+                    <h3>Active Members</h3>
+                    <div class="value">128</div>
+                </div>
+                
+                <div class="stat-card" id="onRetreatCard">
+                    <h3>On Retreat</h3>
+                    <div class="value">14</div>
+                </div>
+                
+                <div class="stat-card" id="newThisMonthCard">
+                    <h3>New This Month</h3>
+                    <div class="value">6</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="filter-section">
+                    <select id="roleFilter">
+                        <option value="">All Roles</option>
+                        <option value="Teacher">Meditation Teacher</option>
+                        <option value="Student">Student</option>
+                        <option value="Volunteer">Volunteer</option>
+                        <option value="Staff">Staff</option>
+                        <option value="Visitor">Visitor</option>
+                    </select>
+                    
+                    <select id="statusFilter">
+                        <option value="">All Statuses</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="onleave">On Retreat</option>
+                    </select>
+                    
+                    <button class="btn btn-primary" id="addMemberBtn">
+                        <i class="fas fa-plus"></i> Add Member
+                    </button>
+                </div>
+                
+                <div class="member-grid" id="memberGrid">
+                    <!-- Member cards will be dynamically populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Member Modal -->
+    <div class="modal" id="addMemberModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-plus"></i> Add New Member</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <form id="addMemberForm">
+                <div class="form-group">
+                    <label for="memberName">Full Name*</label>
+                    <input type="text" id="memberName" required>
+                    <div class="error" id="nameError">Please enter a valid name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="memberEmail">Email Address*</label>
+                    <input type="email" id="memberEmail" required>
+                    <div class="error" id="emailError">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="memberDepartment">Role*</label>
+                    <select id="memberDepartment" required>
+                        <option value="">Select Role</option>
+                        <option value="Teacher">Meditation Teacher</option>
+                        <option value="Student">Student</option>
+                        <option value="Volunteer">Volunteer</option>
+                        <option value="Staff">Staff</option>
+                        <option value="Visitor">Visitor</option>
+                    </select>
+                    <div class="error" id="departmentError">Please select a role</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="memberPosition">Position/Responsibilities*</label>
+                    <input type="text" id="memberPosition" required>
+                    <div class="error" id="positionError">Please enter a position</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="memberStatus">Status*</label>
+                    <select id="memberStatus" required>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="onleave">On Retreat</option>
+                    </select>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-cancel" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveMemberBtn">
+                        <i class="fas fa-save"></i> Save Member
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/scripts/DashBoardMembers.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Booking - Ashram</title>
+  <link rel="stylesheet" href="/styles/bookings/booking.css">
+  <script src="/scripts/bookings/dummy.js"></script>
+
+  <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <!-- Import components as module -->
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/components/footer.js"></script>
+
+</head>
+<body>
+  <navigation-bar></navigation-bar>
+  <!-- Main content section -->
+  <section class="booking-section">
+    <div class="container">
+      <h1>Find Your Sanctuary</h1>
+      <div class="intro">
+        <p>Experience tranquility and spiritual growth at our ashram. Our accommodations are designed to facilitate your journey of self-discovery and inner peace. Choose from a variety of rooms that cater to different needs and preferences.</p>
+      </div>
+
+      <div class="booking-grid" id="roomsContainer">
+        <!-- Room cards will be generated dynamically via JavaScript -->
+      </div>
+
+      <!-- Testimonials -->
+      <div class="testimonials">
+        <h2 class="form-title">Guest Experiences</h2>
+        <div class="testimonial">
+          <p class="testimonial-text">My stay at the ashram was transformative. The peaceful environment and comfortable accommodations allowed me to fully immerse in my spiritual practice. I'll definitely be returning.</p>
+          <p class="testimonial-author">— Priya S., Mumbai</p>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">The Guru Suite exceeded all my expectations. The spacious room provided the perfect sanctuary for meditation and self-reflection. The staff was attentive yet respectful of my need for solitude.</p>
+          <p class="testimonial-author">— Robert M., London</p>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">I chose the dormitory option for my first visit, and it was a wonderful experience. I connected with like-minded individuals while still having enough personal space for my practice.</p>
+          <p class="testimonial-author">— Ananya K., Bangalore</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for booking -->
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModal">&times;</button>
+      <div class="booking-form">
+        <h2 class="form-title">Book Your Stay</h2>
+        <form id="bookingForm" novalidate>
+          <input type="hidden" id="selected-room-id">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="check-in">Check-in Date <span class="required">*</span></label>
+              <input type="date" id="check-in" required>
+              <div class="error-message" id="check-in-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="check-out">Check-out Date <span class="required">*</span></label>
+              <input type="date" id="check-out" required>
+              <div class="error-message" id="check-out-error"></div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="room-type">Room Type <span class="required">*</span></label>
+              <select id="room-type" required disabled>
+                <!-- Room options will be filled by JavaScript -->
+              </select>
+              <div class="error-message" id="room-type-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="guests">Number of Guests <span class="required">*</span></label>
+              <select id="guests" required>
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5+</option>
+              </select>
+              <div class="error-message" id="guests-error"></div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="full-name">Full Name <span class="required">*</span></label>
+              <input type="text" id="full-name" required>
+              <div class="error-message" id="full-name-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" required>
+              <div class="error-message" id="email-error"></div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number <span class="required">*</span></label>
+              <input type="tel" id="phone" required>
+              <div class="error-message" id="phone-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="country">Country <span class="required">*</span></label>
+              <input type="text" id="country" required>
+              <div class="error-message" id="country-error"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="special-requests">Special Requests or Dietary Requirements</label>
+            <textarea id="special-requests"></textarea>
+          </div>
+
+          <div class="form-group form-checkbox">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">I agree to the terms and conditions <span class="required">*</span></label>
+            <div class="error-message" id="terms-error"></div>
+          </div>
+
+          <button type="submit" class="submit-button">Complete Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <script src="/scripts/bookings/debug.js"></script> -->
+  <script src="/scripts/bookings/primary.js" defer ></script>
+  <footer-component></footer-component>
+</body>
+</html>

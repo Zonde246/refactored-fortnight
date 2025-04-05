@@ -5,14 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/main.css">
-    <title>Document</title>
+    
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <!-- Import components as module -->
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/components/footer.js"></script>
+    
+    <title>Shanti Ashram</title>
 </head>
 
 <body>
-    <?php include './components/navbar.php';
-        echo NavigationBar();
-    ?>
-    <section class="hero">
+    <!-- Use the custom navbar component -->
+    <navigation-bar></navigation-bar>
+    <section class="hero test-main-css">
         <h1>Find Inner Peace & Spiritual Growth</h1>
         <p>Join our community and embark on a journey of self-discovery, meditation, and holistic wellness.</p>
         <a href="#" class="cta-btn">Begin Your Journey</a>
@@ -45,7 +51,7 @@
             <h2 class="programs-title">Our Spiritual Programs</h2>
 
             <div class="program-card">
-                <div class="program-img"></div>
+                <div class="program-img"><img src="/public/retreat.jpeg" width="100%" height="100%"></div>
                 <div class="program-info">
                     <h3>Meditation Retreats</h3>
                     <p>Immerse yourself in silence and mindfulness with our guided meditation retreats. Perfect for beginners and experienced meditators alike.</p>
@@ -61,11 +67,11 @@
                     <p>Duration: 200-500 hours</p>
                     <a href="#" class="cta-btn">Learn More</a>
                 </div>
-                <div class="program-img"></div>
+                <div class="program-img"><img src="/public/ytt.jpeg" width="100%" height="100%"></div>
             </div>
 
             <div class="program-card">
-                <div class="program-img"></div>
+                <div class="program-img"><img src="/public/wellness.jpeg" width="100%" height="100%"></div>
                 <div class="program-info">
                     <h3>Ayurvedic Wellness</h3>
                     <p>Experience the ancient science of Ayurveda with personalized wellness consultations, treatments, and cooking workshops.</p>
@@ -126,11 +132,10 @@
             </div>
         </div>
     </section>
-
-<?php include './components/footer.php';
-    echo Footer();
-?>
-
+    <!-- Rest of your content -->
+    
+    <!-- Use the custom footer component -->
+    <footer-component></footer-component>
 </body>
 
 </html>

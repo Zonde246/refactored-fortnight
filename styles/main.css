@@ -49,7 +49,7 @@
 
 .hero {
     height: 80vh;
-    background: linear-gradient(rgba(7, 2, 13, 0.7), rgba(7, 2, 13, 0.4)), url("SOMEIMG") center/cover no-repeat;
+    background: linear-gradient(rgba(7, 2, 13, 0.7), rgba(7, 2, 13, 0.4)), url("/public/bg.jpeg") center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -165,7 +165,7 @@
 .program-img {
     flex: 1;
     min-height: 300px;
-    background: url("SOMEIMG") center/cover no-repeat;
+    /* background: url("/public/ytt.jpeg") center/cover no-repeat; */
 }
 
 .program-info {
@@ -243,8 +243,14 @@
 }
 
 .event-img {
+    width: 400px;
     height: 200px;
-    background: url("SOMEIMG") center/cover no-repeat;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    background: url("/public/Listing.png") center/cover no-repeat;
+
+
 }
 
 .event-info {
@@ -297,3 +303,4 @@
         min-height: 200px;
     }
 }
+

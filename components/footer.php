@@ -5,6 +5,7 @@ function Footer() {
     return '
         <head>
             <link rel="stylesheet" href="/styles/footer.css" />
+            <script src="/scripts/components/formHandler.js"></script>
         </head>
         <footer>
             <div class="footer-content">

@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/contact.css">
+
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <!-- Import components as module -->
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/components/footer.js"></script>
+
     <title>Document</title>
+    <script src="/scripts/contact.js"></script>
 </head>
 <body>
-<?php include "./components/navbar.php";
-    echo NavigationBar();
-?>
+<navigation-bar></navigation-bar>
 <div class="container">
     <h2>Contact Us</h2>
     <p>We're here to help you on your spiritual journey. Reach out to us with any questions.</p>
@@ -95,8 +101,6 @@
         </div>
     </div>
 </div>
-<?php include "./components/footer.php";
-    echo Footer();
-    ?>
+<footer-component></footer-component>
 </body>
 </html>

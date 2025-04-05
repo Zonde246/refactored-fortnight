@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/about/about.css">
     <link rel="stylesheet" href="/styles/about/aboutMobile.css">
+    
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/components/footer.js"></script>
     <title>About Our Ashram - Shanti Ashram</title>
     <meta name="description" content="Learn about Shanti Ashram's history, mission, and spiritual philosophy. Founded in 1985 by Guru Sri Prabhakar Mishra in the Himalayas.">
 
 </head>
 
 <body>
-<?php include "./components/navbar.php";
-    echo NavigationBar();
-?>
+<navigation-bar></navigation-bar>
 
 <section class="page-header" aria-label="Page header">
     <h1>About Our Ashram</h1>
@@ -29,7 +32,7 @@
 <main class="container">
     <section class="about-intro" aria-labelledby="intro-heading">
         <div class="about-img">
-            <img src="IMAGEHERE" alt="Panoramic view of Shanti Ashram surrounded by Himalayan mountains and lush forests">
+            <img src="/public/ShanthiAshram.jpeg" alt="Panoramic view of Shanti Ashram surrounded by Himalayan mountains and lush forests">
         </div>
         <div class="about-text">
             <h2 id="intro-heading">Our Sacred Journey</h2>
@@ -168,7 +171,7 @@
         <div class="team-grid">
             <div class="team-member">
                 <div class="team-img">
-                    <img src="IMAGEHERE" alt="Portrait of Swami Ananda">
+                    <img src="/public/person1.jpg" alt="Portrait of Swami Ananda">
                 </div>
                 <h3 class="team-name">Swami Ananda</h3>
                 <p class="team-role">Head Guru & Meditation Teacher</p>
@@ -177,7 +180,7 @@
 
             <div class="team-member">
                 <div class="team-img">
-                    <img src="IMAGEHERE" alt="Portrait of Yogini Deepa">
+                    <img src="/public/person4.jpg" alt="Portrait of Yogini Deepa">
                 </div>
                 <h3 class="team-name">Yogini Deepa</h3>
                 <p class="team-role">Senior Yoga Instructor</p>
@@ -186,7 +189,7 @@
 
             <div class="team-member">
                 <div class="team-img">
-                    <img src="IMAGEHERE" alt="Portrait of Dr. Ramesh Kumar">
+                    <img src="/public/person2.jpg" alt="Portrait of Dr. Ramesh Kumar">
                 </div>
                 <h3 class="team-name">Dr. Ramesh Kumar</h3>
                 <p class="team-role">Ayurvedic Physician</p>
@@ -195,7 +198,7 @@
 
             <div class="team-member">
                 <div class="team-img">
-                    <img src="IMAGEHERE" alt="Portrait of Maya Sharma">
+                    <img src="/public/person3.jpg" alt="Portrait of Maya Sharma">
                 </div>
                 <h3 class="team-name">Maya Sharma</h3>
                 <p class="team-role">Vedic Philosophy Teacher</p>
@@ -227,10 +230,7 @@
         });
     });
 </script>
-<?php
-    include "./components/footer.php";
-    echo Footer();
-?>
+<footer-component></footer-component>
 </body>
 
 </html>

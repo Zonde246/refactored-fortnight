@@ -366,11 +366,7 @@
             <h1>Ashram Management</h1>
             <ul>
                 <li><a href="#" class="active"><i class="fas fa-om"></i> Dashboard</a></li>
-                <li><a href="#"><i class="fas fa-users"></i> Members</a></li>
-                <li><a href="#"><i class="fas fa-calendar-alt"></i> Activities</a></li>
-                <li><a href="#"><i class="fas fa-chart-line"></i> Spiritual Growth</a></li>
-                <li><a href="#"><i class="fas fa-hand-holding-heart"></i> Services</a></li>
-                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="./dashMembers.php"><i class="fas fa-users"></i> Members</a></li>
                 <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </div>
