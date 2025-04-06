@@ -1,21 +1,15 @@
 /* Global Styles */
 :root {
-    --dark-purple: #07020d; /* Deep black/purple */
-    --light-lavender: #f6f1fd; /* Light lavender */
-    --vibrant-purple: #732ddb; /* Vibrant purple */
-    --soft-pink: #eb8dc4; /* Pink */
-    --coral-red: #e15270;
-    
-    --primary-color: var(--vibrant-purple);
-    --secondary-color: #6c757d;
-    --success-color: #28a745;
-    --danger-color: var(--coral-red);
-    --warning-color: #ffc107;
-    --light-color: var(--light-lavender);
-    --dark-color: var(--dark-purple);
+    --primary-color: #07020d;
+    --secondary-color: #f6f1fd;
+    --success-color: #732ddb;
+    --danger-color: #e15270;
+    --warning-color: #e15270;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
     --sidebar-width: 250px;
-    --sidebar-bg: var(--dark-purple);
-    --sidebar-text: var(--light-lavender);
+    --sidebar-bg: #2c3e50;
+    --sidebar-text: #ecf0f1;
     --border-radius: 8px;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
@@ -29,8 +23,8 @@
 }
 
 body {
-    background-color: var(--light-lavender);
-    color: var(--dark-purple);
+    background-color: #f5f7fb;
+    color: #333;
 }
 
 .container {
@@ -62,7 +56,7 @@ body {
 }
 
 .logo span {
-    color: var(--soft-pink);
+    color: var(--primary-color);
     font-weight: 300;
 }
 
@@ -84,7 +78,7 @@ body {
 
 .nav-item.active {
     background-color: rgba(255, 255, 255, 0.15);
-    border-left: 4px solid var(--soft-pink);
+    border-left: 4px solid var(--primary-color);
 }
 
 .nav-item i {
@@ -104,7 +98,7 @@ body {
 .profile-pic {
     width: 40px;
     height: 40px;
-    background-color: var(--vibrant-purple);
+    background-color: var(--primary-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -152,7 +146,7 @@ body {
 }
 
 .btn-primary {
-    background-color: var(--vibrant-purple);
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -162,7 +156,7 @@ body {
 }
 
 .btn-danger {
-    background-color: var(--coral-red);
+    background-color: var(--danger-color);
     color: white;
 }
 
@@ -268,8 +262,6 @@ body {
 
 .course-actions {
     margin-top: 15px;
-    display: flex;
-    gap: 10px;
 }
 
 /* Form Styles */
@@ -457,52 +449,6 @@ tbody tr:hover {
 }
 
 /* Responsive Styles */
-/* Add additional styles for badges */
-.badge {
-    display: inline-block;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 500;
-    margin-right: 5px;
-    background-color: var(--light-lavender);
-    color: var(--vibrant-purple);
-}
-
-.badge-success {
-    background-color: rgba(40, 167, 69, 0.2);
-    color: var(--success-color);
-}
-
-.badge-secondary {
-    background-color: rgba(108, 117, 125, 0.2);
-    color: var(--secondary-color);
-}
-
-/* No data and error message styles */
-.no-data, .error-message {
-    text-align: center;
-    padding: 20px;
-    grid-column: 1 / -1;
-    color: var(--secondary-color);
-}
-
-.error-message {
-    color: var(--danger-color);
-}
-
-.loading-cell {
-    text-align: center;
-    padding: 20px;
-    color: var(--secondary-color);
-}
-
-/* Button small variant */
-.btn-sm {
-    padding: 4px 8px;
-    font-size: 12px;
-}
-
 @media (max-width: 768px) {
     .container {
         flex-direction: column;

@@ -33,6 +33,7 @@ footer {
     transition: color 0.3s;
 }
 
+/* .footer-links a:visited */
 .footer-links a:hover {
     color: var(--soft-pink);
 }
@@ -46,6 +47,7 @@ footer {
 .social-link {
     width: 40px;
     height: 40px;
+    color: var(--soft-pink);
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     display: flex;

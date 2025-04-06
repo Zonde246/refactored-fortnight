@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration</title>
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/courses.css">
+    <!-- Import components as module -->
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/components/footer.js"></script>
+    
+</head>
+<body>
+    <navigation-bar></navigation-bar>
+    <div class="course-container">
+        <h1 class="section-title">Available Courses</h1>
+        
+        <div class="course-filter">
+            <button class="filter-btn active" data-filter="all">All Courses</button>
+            <button class="filter-btn" data-filter="available">Available</button>
+            <button class="filter-btn" data-filter="enrolled">My Courses</button>
+        </div>
+        
+        <div id="notification" class="notification"></div>
+        
+        <div id="loading" class="loading">
+            <div class="loading-spinner"></div>
+        </div>
+        
+        <div id="courses-grid" class="courses-grid"></div>
+    </div>
+
+    <script src="/scripts/course.js"></script>
+    <footer-component></footer-component>
+</body>
+</html>

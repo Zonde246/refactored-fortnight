@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard | Course & Room Summary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <!-- Import components as module -->
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/components/footer.js"></script>
+    <style>
+        :root {
+            --dark-purple: #07020d;
+            --light-lavender: #f6f1fd;
+            --vibrant-purple: #732ddb;
+            --soft-pink: #eb8dc4;
+            --coral-red: #e15270;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-lavender);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--dark-purple);
+            color: var(--text-light);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-greeting {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--vibrant-purple);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-light);
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: var(--text-light);
+            color: var(--dark-purple);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-title {
+            margin-bottom: 1.5rem;
+            color: var(--dark-purple);
+            border-bottom: 2px solid var(--vibrant-purple);
+            padding-bottom: 0.5rem;
+        }
+
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background-color: var(--text-light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--vibrant-purple);
+        }
+
+        .card-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dark-purple);
+        }
+
+        .card-label {
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .summary-section {
+            background-color: var(--text-light);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            color: var(--dark-purple);
+            font-size: 1.5rem;
+        }
+
+        .view-all-btn {
+            background-color: var(--vibrant-purple);
+            color: var(--text-light);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-all-btn:hover {
+            background-color: #5c22b1;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .item-card {
+            background-color: var(--light-lavender);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .item-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--vibrant-purple);
+        }
+
+        .item-detail {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .item-icon {
+            color: var(--vibrant-purple);
+            font-size: 0.9rem;
+        }
+
+        .item-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        .status-active {
+            background-color: rgba(115, 45, 219, 0.15);
+            color: var(--vibrant-purple);
+        }
+
+        .status-completed {
+            background-color: rgba(39, 174, 96, 0.15);
+            color: #27ae60;
+        }
+
+        .status-dropped, .status-cancelled {
+            background-color: rgba(225, 82, 112, 0.15);
+            color: var(--coral-red);
+        }
+        
+        .status-pending {
+            background-color: rgba(242, 201, 76, 0.15);
+            color: #f2994a;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .empty-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        .action-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--soft-pink);
+            color: var(--text-light);
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background-color: #d97fae;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-cards,
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <navigation-bar></navigation-bar>
+    <header>
+        <div class="header-container">
+            <div class="user-greeting">
+                <div class="user-avatar">
+                    <span id="user-initials">JS</span>
+                </div>
+                <div>
+                    <h2>Welcome, <span id="user-name">John Smith</span></h2>
+                    <p>My Dashboard</p>
+                </div>
+            </div>
+            <button class="logout-btn" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="page-title">Your Summary</h1>
+
+        <div class="dashboard-cards">
+            <div class="info-card">
+                <div class="card-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <div class="card-number" id="courses-count">3</div>
+                <div class="card-label">Enrolled Courses</div>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">
+                    <i class="fas fa-door-open"></i>
+                </div>
+                <div class="card-number" id="rooms-count">2</div>
+                <div class="card-label">Booked Rooms</div>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="card-number" id="completed-count">1</div>
+                <div class="card-label">Completed Courses</div>
+            </div>
+        </div>
+
+        <section class="summary-section">
+            <div class="section-header">
+                <h2 class="section-title">My Courses</h2>
+                <button class="view-all-btn">View All</button>
+            </div>
+            <div class="items-grid" id="courses-grid">
+                <!-- Course items will be loaded here -->
+            </div>
+        </section>
+
+        <section class="summary-section">
+            <div class="section-header">
+                <h2 class="section-title">My Room Bookings</h2>
+                <button class="view-all-btn">View All</button>
+            </div>
+            <div class="items-grid" id="rooms-grid">
+                <!-- Room booking items will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <footer-component></footer-component>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check authentication
+            checkAuthentication();
+            
+            // Load user data
+            loadUserData();
+            
+            // Setup logout button
+            document.getElementById('logout-btn').addEventListener('click', logout);
+        });
+
+        // Function to check if user is authenticated
+        function checkAuthentication() {
+            fetch('/api/checkAuth.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.authenticated) {
+                        window.location.href = 'index.html';
+                    } else {
+                        // Update user info
+                        const userName = data.user.name;
+                        document.getElementById('user-name').textContent = userName;
+                        
+                        // Set user initials
+                        const nameParts = userName.split(' ');
+                        let initials = '';
+                        if (nameParts.length >= 2) {
+                            initials = nameParts[0].charAt(0) + nameParts[1].charAt(0);
+                        } else {
+                            initials = nameParts[0].charAt(0);
+                        }
+                        document.getElementById('user-initials').textContent = initials.toUpperCase();
+                    }
+                })
+                .catch(error => {
+                    console.error('Authentication check failed:', error);
+                    window.location.href = 'index.html';
+                });
+        }
+
+        // Function to load user data (courses and rooms)
+        function loadUserData() {
+            // Fetch user courses
+            fetch('/api/summary/user_courses.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displayCourses(data.courses);
+                        updateCourseStats(data.courses);
+                    } else {
+                        showEmptyState('courses-grid', 'No courses found', 'book-open');
+                    }
+                })
+                .catch(error => {
+                    console.error('Failed to load courses:', error);
+                    showEmptyState('courses-grid', 'Error loading courses', 'exclamation-circle');
+                });
+            
+            // Fetch user room bookings
+            fetch('/api/summary/user_bookings.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displayRoomBookings(data.bookings);
+                        updateRoomStats(data.bookings);
+                    } else {
+                        showEmptyState('rooms-grid', 'No room bookings found', 'door-open');
+                    }
+                })
+                .catch(error => {
+                    console.error('Failed to load room bookings:', error);
+                    showEmptyState('rooms-grid', 'Error loading room bookings', 'exclamation-circle');
+                });
+        }
+
+        // Display courses
+        function displayCourses(courses) {
+            const coursesGrid = document.getElementById('courses-grid');
+            coursesGrid.innerHTML = '';
+            
+            if (courses.length === 0) {
+                showEmptyState('courses-grid', 'No courses found', 'book-open');
+                return;
+            }
+            
+            courses.forEach(course => {
+                const courseCard = document.createElement('div');
+                courseCard.className = 'item-card';
+                
+                const statusClass = getStatusClass(course.status);
+                
+                courseCard.innerHTML = `
+                    <h3 class="item-title">${course.name}</h3>
+                    <div class="item-detail">
+                        <i class="fas fa-calendar-alt item-icon"></i>
+                        <span>${formatDate(course.start_date)} - ${formatDate(course.end_date)}</span>
+                    </div>
+                    <div class="item-detail">
+                        <i class="fas fa-clock item-icon"></i>
+                        <span>${course.time}</span>
+                    </div>
+                    <div class="item-detail">
+                        <i class="fas fa-map-marker-alt item-icon"></i>
+                        <span>${course.location}</span>
+                    </div>
+                    <div class="item-detail">
+                        <i class="fas fa-calendar-day item-icon"></i>
+                        <span>${course.days}</span>
+                    </div>
+                    <div class="item-status ${statusClass}">${capitalize(course.status)}</div>
+                `;
+                
+                coursesGrid.appendChild(courseCard);
+            });
+        }
+
+        // Display room bookings
+        function displayRoomBookings(bookings) {
+            const roomsGrid = document.getElementById('rooms-grid');
+            roomsGrid.innerHTML = '';
+            
+            if (bookings.length === 0) {
+                showEmptyState('rooms-grid', 'No room bookings found', 'door-open');
+                return;
+            }
+            
+            bookings.forEach(booking => {
+                const bookingCard = document.createElement('div');
+                bookingCard.className = 'item-card';
+                
+                const statusClass = getBookingStatusClass(booking.booking_status);
+                
+                bookingCard.innerHTML = `
+                    <h3 class="item-title">${booking.room_title}</h3>
+                    <div class="item-detail">
+                        <i class="fas fa-calendar-alt item-icon"></i>
+                        <span>${formatDate(booking.check_in_date)} - ${formatDate(booking.check_out_date)}</span>
+                    </div>
+                    <div class="item-detail">
+                        <i class="fas fa-users item-icon"></i>
+                        <span>${booking.num_guests} guests</span>
+                    </div>
+                    <div class="item-detail">
+                        <i class="fas fa-money-bill-wave item-icon"></i>
+                        <span>${booking.currency}${booking.total_price}</span>
+                    </div>
+                    <div class="item-status ${statusClass}">${capitalize(booking.booking_status)}</div>
+                `;
+                
+                roomsGrid.appendChild(bookingCard);
+            });
+        }
+        
+        // Helper function for booking status class
+        function getBookingStatusClass(status) {
+            switch (status) {
+                case 'confirmed':
+                    return 'status-active';
+                case 'completed':
+                    return 'status-completed';
+                case 'cancelled':
+                    return 'status-dropped';
+                case 'pending':
+                    return 'status-pending';
+                default:
+                    return '';
+            }
+        }
+
+        // Show empty state
+        function showEmptyState(containerId, message, icon) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-icon">
+                        <i class="fas fa-${icon}"></i>
+                    </div>
+                    <p>${message}</p>
+                    <a href="${containerId === 'courses-grid' ? '/prot/courses.html' : '/prot/booking.html'}" class="action-btn">
+                        ${containerId === 'courses-grid' ? 'Browse Courses' : 'Book a Room'}
+                    </a>
+                </div>
+            `;
+        }
+
+        // Update course statistics
+        function updateCourseStats(courses) {
+            let active = 0;
+            let completed = 0;
+            
+            courses.forEach(course => {
+                if (course.status === 'completed') {
+                    completed++;
+                } else if (course.status === 'active') {
+                    active++;
+                }
+            });
+            
+            document.getElementById('courses-count').textContent = active;
+            document.getElementById('completed-count').textContent = completed;
+        }
+
+        // Update room statistics
+        function updateRoomStats(bookings) {
+            document.getElementById('rooms-count').textContent = bookings.length;
+        }
+
+        // Helper function to get status class
+        function getStatusClass(status) {
+            switch (status) {
+                case 'active':
+                    return 'status-active';
+                case 'completed':
+                    return 'status-completed';
+                case 'dropped':
+                    return 'status-dropped';
+                default:
+                    return '';
+            }
+        }
+
+        // Helper function to capitalize first letter
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        // Helper function to format date
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        }
+
+        // Logout function
+        function logout() {
+            const formData = new FormData();
+            formData.append('action', 'logout');
+            
+            fetch('/api/authHandler.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = data.data.redirect;
+                } else {
+                    console.error('Logout failed:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Logout error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

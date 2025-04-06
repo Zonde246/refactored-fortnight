@@ -166,16 +166,48 @@ function handleLogin() {
 
 // Handle signup
 function handleSignup() {
-    // (Keep existing validation code)
+    // Get input data and validate
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
+    
+    // Validate required fields
+    if (empty($name)) {
+        sendResponse(false, "Name is required");
+    }
+    
+    if (empty($email)) {
+        sendResponse(false, "Email is required");
+    }
+    
+    if (empty($password)) {
+        sendResponse(false, "Password is required");
+    }
+    
+    // Email format validation
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        sendResponse(false, "Invalid email format");
+    }
+    
+    // Password validation - matching the frontend requirements
+    if (strlen($password) < 8) {
+        sendResponse(false, "Password must be at least 8 characters long");
+    }
+    
+    if (!preg_match('/[0-9]/', $password)) {
+        sendResponse(false, "Password must include at least one number");
+    }
+    
+    if (!preg_match('/[!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?]/', $password)) {
+        sendResponse(false, "Password must include at least one special character");
+    }
     
     try {
         $pdo = connectDB();
-        
         // Check if email already exists
         $checkStmt = $pdo->prepare("SELECT id FROM users WHERE email = :email LIMIT 1");
         $checkStmt->bindParam(':email', $email, PDO::PARAM_STR);
         $checkStmt->execute();
-        
         if ($checkStmt->fetch()) {
             sendResponse(false, "Email already exists. Please use a different email or login.");
         }
@@ -196,14 +228,14 @@ function handleSignup() {
         sendResponse(true, "Account created successfully", [
             'name' => $name,
             'email' => $email,
-            'role' => 'user',
-            'redirect' => 'login.php'
+            'role' => 'user'
         ]);
     } catch (PDOException $e) {
         error_log("Signup error: " . $e->getMessage());
         sendResponse(false, "An error occurred during signup. Please try again.");
     }
 }
+
 
 
 // Handle logout
@@ -223,7 +255,7 @@ function handleLogout() {
     // Destroy session
     session_destroy();
     
-    sendResponse(true, "Logout successful", ['redirect' => 'login.php']);
+    sendResponse(true, "Logout successful", ['redirect' => '/index.html']);
 }
 
 function getUserRole() {

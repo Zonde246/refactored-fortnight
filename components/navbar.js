@@ -67,18 +67,18 @@ class NavigationBar extends HTMLElement {
     // Navigation items for logged-in users
     if (this.currentUser) {
       navItems += `
-        <li><a href="./prot/booking.html">Booking</a></li>
-        <li><a href="./courses.html">Courses</a></li>
+        <li><a href="/prot/booking.html">Booking</a></li>
+        <li><a href="/prot/courses.html">Courses</a></li>
       `;
       
       // Employee-specific navigation
       if (this.currentUser.role === 'employee') {
-        navItems += `<li><a href="./dashboard-employee.html">Dashboard - E</a></li>`;
+        navItems += `<li><a href="/prot/empView.html">Dashboard - E</a></li>`;
       }
       
       // Admin-specific navigation
       if (this.currentUser.role === 'admin') {
-        navItems += `<li><a href="./dashboard.html">Dashboard</a></li>`;
+        navItems += `<li><a href="/prot/dash.php">Dashboard</a></li>`;
       }
     }
     
@@ -97,6 +97,7 @@ class NavigationBar extends HTMLElement {
             <span>${this.currentUser.name}</span>
           </a>
           <div class="dropdown-content" id="account-dropdown">
+          <a href="/prot/summary.html" id="Summary">Summary</a>
             <hr>
             <a href="#" id="logout-btn">Log Out</a>
           </div>
